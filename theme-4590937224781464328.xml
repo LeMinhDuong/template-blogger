@@ -9,7 +9,24 @@
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i' media='all' rel='stylesheet' type='text/css'/>
     <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
-
+	
+	<!-- *duong -->
+	<b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <meta expr:content='data:blog.pageName' property='og:title'/>
+        <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+        <meta content='article' property='og:type'/>
+    </b:if>
+    <b:if cond='data:blog.postImageUrl'>
+        <meta expr:content='data:blog.postImageUrl' property='og:image'/>
+    <b:else/>
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+        <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+    </b:if></b:if>
+    <b:if cond='data:blog.metaDescription != &quot;&quot;'>
+        <meta expr:content='data:blog.metaDescription' name='og:description'/>
+    </b:if>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+	<!-- duong* -->
 <!-- Template Style CSS -->
 <b:skin version='1.0.0'><![CDATA[/* 
 -----------------------------------------------
@@ -28,6 +45,9 @@ Author Url:  https://www.soratemplates.com/
 <Group description="Theme Colors" selector="body">
  <Variable name="main.color" description="Theme Color" type="color" default="#00979d" value="#00979d"/>
   <Variable name="dark.color" description="Dark Color" type="color" default="#222222" value="#222222"/>
+  <!-- *duong -->
+  <Variable name="green.color" description="Green Color" type="color" default="#23ae4a" value="#23ae4a"/>
+  <!-- duong* -->
   <Variable name="title.color" description="Title Color" type="color" default="#222222" value="#222222"/>
   <Variable name="get.code" description="Read More BG" type="color" default="#ff9900" value="#ff9900"/>
   <Variable name="footer.color" description="Footer Color" type="color" default="#f1ffff" value="#f1ffff"/>
@@ -123,7 +143,8 @@ body{background:$(body.background);background-color:$(body.background.color);fon
 .social-color .email a{background-color:#888}
 .social-color .external-link a{background-color:$(dark.color)}
 #header-wrap{position:relative;margin:0}
-.header-header{background-color:$(dark.color);width:100%;height:30px;position:relative;overflow:hidden;padding:20px 0}
+/*duong .header-header{background-color:$(dark.color);width:100%;height:30px;position:relative;overflow:hidden;padding:20px 0}*/
+.header-header{background-color:$(green.color);width:100%;height:30px;position:relative;overflow:hidden;padding:20px 0} /*duong*/
 .header-header .container{position:relative;margin:0 auto;padding:0}
 .header-logo{position:relative;float:left;width:auto;max-width:250px;max-height:30px;margin:0;padding:0}
 .header-logo .header-image-wrapper{display:block}
@@ -479,7 +500,7 @@ blockquote:after{content:'\f10e';margin:0 0 0 10px}
 .common-widget .LinkList ul li a,.common-widget .PageList ul li a{display:block;color:$(title.color);font-size:13px;font-weight:400}
 .common-widget .LinkList ul li a:hover,.common-widget .PageList ul li a:hover{color:$(main.color)}
 .common-widget .LinkList ul li:first-child,.common-widget .LinkList ul li:nth-child(2),.common-widget .PageList ul li:first-child,.common-widget .PageList ul li:nth-child(2){padding:0}
-#footer-wrapper{background-color:$(dark.color)}
+#footer-wrapper{background-color:$(green.color)} /*duong*/
 #footer-wrapper .container{position:relative;overflow:hidden;margin:0 auto;padding:25px 0}
 .footer-widgets-wrap{position:relative;display:flex;margin:0 -15px}
 #footer-wrapper .footer{display:inline-block;float:left;width:33.33333333%;box-sizing:border-box;padding:0 15px}
@@ -517,7 +538,7 @@ blockquote:after{content:'\f10e';margin:0 0 0 10px}
 #footer-menu ul li:last-child a{padding:0 0 0 5px}
 #footer-menu ul li a:hover{color:$(main.color)}
 #sub-footer-wrapper .copyright-area{font-size:13px;float:left;height:34px;line-height:34px;font-weight:400}
-#sub-footer-wrapper .copyright-area a{color:$(main.color)}
+#sub-footer-wrapper .copyright-area a{color:$(green.color)} /*duong*/
 #sub-footer-wrapper .copyright-area a:hover{text-decoration:underline}
 .hidden-widgets{display:none;visibility:hidden}
 .back-top{display:none;z-index:1010;width:34px;height:34px;position:fixed;bottom:25px;right:25px;cursor:pointer;overflow:hidden;font-size:13px;color:#fff;text-align:center;line-height:34px;border-radius:3px}
@@ -853,6 +874,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
     <b:include data='blog' name='google-analytics'/>
 
 </head>
+
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
   <b:class cond='data:view.isPage' name='item'/>
@@ -934,8 +956,11 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
         <b:section class='header-logo' id='header-logo' maxwidgets='1' name='Header Logo' showaddelement='yes'>
           <b:widget id='Header1' locked='true' title='Chợ Xinh (Tiêu đề)' type='Header' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='displayUrl'>http://2.bp.blogspot.com/-NgnrSu8fe0s/XGtCbmTuGnI/AAAAAAAAD9c/yGwu37L1By02jFmL4gopooHoM0PbJHzJQCK4BGAYYCw/s1600/logo.png</b:widget-setting>
-              <b:widget-setting name='displayHeight'>36</b:widget-setting>
+			  <!-- *duong -->
+              <!-- <b:widget-setting name='displayUrl'>http://2.bp.blogspot.com/-NgnrSu8fe0s/XGtCbmTuGnI/AAAAAAAAD9c/yGwu37L1By02jFmL4gopooHoM0PbJHzJQCK4BGAYYCw/s1600/logo.png</b:widget-setting> -->
+              <b:widget-setting name='displayUrl'>https://2.bp.blogspot.com/-OcmUUqAoidk/XNjYq7jtfmI/AAAAAAAABZk/tK9NkI8RkTM0lHyvGbc0Men7FTtzHMBugCLcBGAs/s1600/logo.png</b:widget-setting> 
+			  <!-- duong* -->
+			  <b:widget-setting name='displayHeight'>36</b:widget-setting>
               <b:widget-setting name='sectionWidth'>838</b:widget-setting>
               <b:widget-setting name='useImage'>true</b:widget-setting>
               <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
@@ -1042,7 +1067,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               <b:widget-setting name='link-1'>#</b:widget-setting>
               <b:widget-setting name='text-0'>facebook</b:widget-setting>
               <b:widget-setting name='link-2'>#</b:widget-setting>
-              <b:widget-setting name='link-0'>https://fb.com/soratemplates</b:widget-setting>
+              <b:widget-setting name='link-0'>https://fb.com/choxinhonline</b:widget-setting>
               <b:widget-setting name='text-2'>instagram</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -2475,7 +2500,21 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 //]]>
-</script>  
+</script>
+
+<!-- *duong -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133765963-1"></script>
+<script>
+//<![CDATA[
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-133765963-1');
+//]]>
+</script>
+<!-- duong* -->
+  
 <!-- Overlay and Back To Top --> 
   <div class='back-top' title='Back to Top'/>
 </body>
