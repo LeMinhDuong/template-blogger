@@ -1831,7 +1831,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
           </b:widget>
           <b:widget id='HTML6' locked='false' title='Facebook' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<center><div class="fb-page" data-href="https://www.facebook.com/soratemplates" data-width="360" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div></center>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<center><div class="fb-page" data-href="https://www.facebook.com/choxinhonline" data-width="360" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div></center>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
