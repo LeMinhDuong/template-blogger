@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://s0.2mdn.net/4382365/1466598501983/interactivefinaltemplatesfixed/banner.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="ad.size" content="width=300,height=250">
+
+
+
+  <style type="text/css">
+
+html {
+
+  width: 300px;
+
+  height: 250px;
+
+}
+
+body {
+
+    width: 300px;
+
+    height: 250px;
+
+    margin: 0px;
+
+    background: url('back.png') center no-repeat;
+
+    cursor: pointer;
+
+    text-align: center;
+
+}
+
+#dropdown {
+
+	margin-top: 74px;
+
+  width: 260px;
+
+  height: 110px;
+
+}
+#dropdowns option[selected] {
+    background: red;
+}
+#click {
+
+	width:100%;
+
+	height:200px;
+
+	margin-top:10px;
+
+}
+select:active, select:hover {
+  outline-color: #4196e0
+ 
+
+}
+
+#clear {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 300px;
+height: 250px;
+}
+
+a,
+#selectWrapper {
+	position: relative;
+}
+
+#selectWrapper select {
+	position: absolute;
+	z-index: 9;
+	left: 20px;
+
+}
+</style>
+<script>
+var clickTag = "http://www.wix.com/";
+</script>
+<script>
+function getFinalClickTag(){
+  var position = window.clickTag.indexOf("wix.com/") + 8;
+  var finalUrl = [window.clickTag.slice(0, position), document.getElementById('dropdown').options[document.getElementById('dropdown').selectedIndex ].value, window.clickTag.slice(position)].join('');
+  return finalUrl;
+};
+function getFinalClickTagButton(){
+  var position = window.clickTag.indexOf("wix.com/") + 8;
+  var finalUrl = [window.clickTag.slice(0, position), 'website/templates', window.clickTag.slice(position)].join('');
+  return finalUrl;
+}
+</script>
+<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+
+<body>
+
+<div>
+<a onclick="window.open(getFinalClickTagButton(), &#39;_blank&#39;)">
+  <img src="./clear.png" id="clear">
+</a>
+
+<div id="selectWrapper"><select multiple="" name="dropdown" id="dropdown" size="5">
+<option value="website/templates">See All Templates</option>
+
+  <option value="website/templates/html/business/1">Business</option>
+
+<option value="website/templates/html/restaurants-food/1">Restaurant</option>
+
+<option value="website/templates/html/online-store/1">Online Store</option>
+
+<option value="website/templates/html/photography/1">Photography</option>
+
+<option value="website/templates/html/music/1">Music</option>
+
+<option value="website/templates/html/design/1">Design</option>
+
+<option value="website/templates/html/accommodation/1">Hotels &amp; Travel</option>
+
+<option value="website/templates/html/fashion-beauty/1">Fashion &amp; Beauty</option>
+
+<option value="website/templates/html/blog/1">Blog</option>
+
+<option value="website/templates">Other</option>
+</select></div>
+ 
+<script type="text/javascript">
+<!--
+function go(){
+location=
+document.George.example.
+options[document.George.example.selectedIndex].value
+}
+//-->
+</script>
+
+<script type="text/javascript">
+
+ var urlmenu = document.getElementById( 'dropdown' );
+
+ urlmenu.onchange = function() {
+
+      window.open(getFinalClickTag(), '_blank');
+
+ };
+
+</script>
+
+</div>
+
+
+
+</body></html>
